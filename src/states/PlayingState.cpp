@@ -1,6 +1,5 @@
-#include "PlayingState.h"
-#include "PlayerCube.h"
-#include "Duck.h"
+#include "states/PlayingState.hpp"
+#include "entities/Duck.hpp"
 #include "TerrainGenerator.h"
 #include "DuckPlayerControler.h"
 #include "DuckBotControler.h"

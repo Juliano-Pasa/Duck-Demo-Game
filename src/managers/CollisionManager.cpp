@@ -1,4 +1,4 @@
-#include "CollisionManager.hpp"
+#include "managers/CollisionManager.hpp"
 #include <iostream>
 
 CollisionManager::CollisionManager(vector<Entity*> entities, Entity* referenceEntity, TerrainV2* terrain)

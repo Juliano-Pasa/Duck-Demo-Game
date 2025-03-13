@@ -6,13 +6,12 @@
 
 #include "states/GameState.hpp"
 #include "managers/CollisionManager.hpp"
-#include "Camera.h"
-#include "Terrain.h"
-#include "TerrainV2.h"
-#include "Wind.h"
-#include "Entity.h"
-#include "WorldLight.h"
-#include "InputManager.h"
+#include "entities/Camera.hpp"
+#include "terrain/TerrainV2.hpp"
+#include "entities/Wind.hpp"
+#include "entities/Entity.hpp"
+#include "entities/WorldLight.hpp"
+#include "managers/InputManager.hpp"
 
 #include <vector>
 
@@ -22,7 +21,6 @@ class PlayingState : public GameState
 {
 private:
 	Camera* camera;
-	Terrain* terrain;
 	TerrainV2* terrainV2;
 	WorldLight* worldLight;
 

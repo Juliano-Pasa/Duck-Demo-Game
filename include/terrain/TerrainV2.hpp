@@ -3,8 +3,7 @@
 
 #include "entities/Entity.hpp"
 #include "entities/Camera.hpp"
-#include "WorldLight.h"
-#include "TextureManager.h"
+#include "entities/WorldLight.hpp"
 #include <string>
 #include <vector>
 

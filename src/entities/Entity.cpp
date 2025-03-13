@@ -1,4 +1,4 @@
-#include "Entity.hpp"
+#include "entities/Entity.hpp"
 
 Entity::Entity(vec3 position, vec3 rotation, vec3 scale)
 {

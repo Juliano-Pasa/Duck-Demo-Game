@@ -6,9 +6,22 @@ add_executable(DuckGame
     src/main.cpp
     src/glad.c
 
+    src/controllers/EntityController.cpp
+
+    src/entities/Camera.cpp
+    src/entities/Duck.cpp
+    src/entities/Entity.cpp
+    src/entities/Transform.cpp
+    src/entities/Wind.cpp
+    src/entities/WorldLight.cpp
+
+    src/managers/CollisionManager.cpp
     src/managers/GameManager.cpp
+    src/managers/InputManager.cpp
 
     src/states/PlayingState.cpp
+
+    src/terrain/TerrainV2.cpp
 
     utils/glslprogram.cpp
     utils/GLUtils.cpp
