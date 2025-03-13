@@ -5,7 +5,10 @@ include_directories(include utils)
 add_executable(DuckGame 
     src/main.cpp
     src/glad.c
+    src/lodepng.cpp
 
+    src/controllers/DuckBotController.cpp
+    src/controllers/DuckPlayerController.cpp
     src/controllers/EntityController.cpp
 
     src/entities/Camera.cpp
@@ -21,6 +24,7 @@ add_executable(DuckGame
 
     src/states/PlayingState.cpp
 
+    src/terrain/TerrainGenerator.cpp
     src/terrain/TerrainV2.cpp
 
     utils/glslprogram.cpp

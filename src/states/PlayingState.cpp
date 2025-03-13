@@ -1,8 +1,8 @@
 #include "states/PlayingState.hpp"
 #include "entities/Duck.hpp"
-#include "TerrainGenerator.h"
-#include "DuckPlayerControler.h"
-#include "DuckBotControler.h"
+#include "terrain/TerrainGenerator.hpp"
+#include "controllers/DuckPlayerController.hpp"
+#include "controllers/DuckBotController.hpp"
 #include <ctime>
 #include <iostream>
 
@@ -164,11 +164,6 @@ void PlayingState::InitializeTerrain()
 	terrainGenerator.FreeMap();
 
 	int dimensions = (int)pow(2, mapSize) + 1;
-	terrain = new Terrain(dimensions, dimensions, 256, camera, heightMapPath, normalMapPath);
-	terrain->worldLight = worldLight;
-	terrain->Initialize();
-	//entities.push_back(terrain);
-
 	terrainV2 = new TerrainV2(dimensions, dimensions, 256, camera, heightMapPath, normalMapPath);
 	terrainV2->worldLight = worldLight;
 	terrainV2->Initialize();
@@ -193,7 +188,7 @@ Entity* PlayingState::InitializePlayer(InputManager* inputManager, Camera* camer
 	Duck* duck = new Duck(position, vec3(10), worldLight, controler);
 	entities.push_back(duck);
 	entities.back()->Initialize();
-	terrain->AddChild(entities.back());
+	terrainV2->AddChild(entities.back());
 
 	return duck;
 }
@@ -206,7 +201,7 @@ void PlayingState::InitializeBots(WorldLight* worldLight, vec3 position)
 	Duck* duck = new Duck(position, vec3(10), worldLight, controler);
 	entities.push_back(duck);
 	entities.back()->Initialize();
-	terrain->AddChild(entities.back());
+	terrainV2->AddChild(entities.back());
 }
 
 #pragma endregion
