@@ -20,9 +20,9 @@ Duck::Duck(vec3 position, vec3 scale, WorldLight* worldLight, EntityControler* e
 void Duck::Initialize()
 {
 	try {
-		shader.compileShader("shader/Duck.vert", GLSLShader::VERTEX);
-		shader.compileShader("shader/Duck.geom", GLSLShader::GEOMETRY);
-		shader.compileShader("shader/Duck.frag", GLSLShader::FRAGMENT);
+		shader.compileShader("../shaders/entities/Duck.vert", GLSLShader::VERTEX);
+		shader.compileShader("../shaders/entities/Duck.geom", GLSLShader::GEOMETRY);
+		shader.compileShader("../shaders/entities/Duck.frag", GLSLShader::FRAGMENT);
 
 		shader.link();
 		shader.use();
@@ -32,12 +32,11 @@ void Duck::Initialize()
 		system("pause");
 		exit(EXIT_FAILURE);
 	}
-	shader.printActiveAttribs();
 
 	primitiveRestartIndex = -1;
 	glPrimitiveRestartIndex(primitiveRestartIndex);
 
-	LoadModel("..\\..\\resources\\DuckModel2.obj");
+	LoadModel("../assets/DuckModel2.obj");
 	GenerateBuffers();
 }
 

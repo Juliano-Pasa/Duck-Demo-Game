@@ -39,8 +39,8 @@ void TerrainV2::Initialize()
 	glEnable(GL_PRIMITIVE_RESTART);
 
 	try {
-		shader.compileShader("shader/TerrainShaders/TerrainV2.vert", GLSLShader::VERTEX);
-		shader.compileShader("shader/TerrainShaders/TerrainV2.frag", GLSLShader::FRAGMENT);
+		shader.compileShader("../shaders/terrain/TerrainV2.vert", GLSLShader::VERTEX);
+		shader.compileShader("../shaders/terrain/TerrainV2.frag", GLSLShader::FRAGMENT);
 
 		shader.link();
 		shader.use();
@@ -50,7 +50,6 @@ void TerrainV2::Initialize()
 		system("pause");
 		exit(EXIT_FAILURE);
 	}
-	shader.printActiveAttribs();
 
 	shader.setUniform("minNoise", minNoise);
 	shader.setUniform("maxNoise", maxNoise);

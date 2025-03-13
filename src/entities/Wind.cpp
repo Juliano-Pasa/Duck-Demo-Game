@@ -173,8 +173,8 @@ void Wind::GenerateBuffers()
 void Wind::Initialize()
 {
 	try {
-		shader.compileShader("shader/Wind.vert", GLSLShader::VERTEX);
-		shader.compileShader("shader/Wind.frag", GLSLShader::FRAGMENT);
+		shader.compileShader("../shaders/entities/Wind.vert", GLSLShader::VERTEX);
+		shader.compileShader("../shaders/entities/Wind.frag", GLSLShader::FRAGMENT);
 
 		shader.link();
 		shader.use();
@@ -184,7 +184,6 @@ void Wind::Initialize()
 		system("pause");
 		exit(EXIT_FAILURE);
 	}
-	shader.printActiveAttribs();
 
 	this->primitiveRestartIndex = -1;
 	glPrimitiveRestartIndex(primitiveRestartIndex);
