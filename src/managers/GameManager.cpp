@@ -1,4 +1,5 @@
 #include "managers/GameManager.hpp"
+#include "GLUtils.hpp"
 
 #define WINDOW_WIDTH 1920
 #define WINDOW_HEIGHT 1080
@@ -13,7 +14,7 @@ void GameManager::Launch()
 {
 	InitializeGLFW();
 	InitializeCallbacks();
-	InitializeGLEW();
+	InitializeGLAD();
 
 	currentState = new PlayingState(window);
 	currentState->OnStart();
@@ -23,10 +24,7 @@ void GameManager::Launch()
 
 void GameManager::InitializeGLFW()
 {
-	if (!glfwInit())
-	{
-		exit(EXIT_FAILURE);
-	}
+	assert(glfwInit() && "GLFW was unable to initialize.");
 
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
@@ -39,10 +37,8 @@ void GameManager::InitializeGLFW()
 	window = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "glsl40_toon", NULL, NULL);
 	if (!window)
 	{
-		fprintf(stderr, "Failed to open GLFW window.\n");
 		glfwTerminate();
-		system("pause");
-		exit(EXIT_FAILURE);
+		assert(false && "Failed to create GLFW window.");
 	}
 }
 
@@ -53,17 +49,16 @@ void GameManager::InitializeCallbacks()
 	glfwSetErrorCallback(ErrorCallback);
 }
 
-void GameManager::InitializeGLEW()
+void GameManager::InitializeGLAD()
 {
-	glewExperimental = GL_TRUE;
-	GLenum err = glewInit();
-
-	if (err != GLEW_OK)
+	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 	{
-		fprintf(stderr, "Error: %s\n", glewGetErrorString(err));
-		system("pause");
-		exit(EXIT_FAILURE);
+		glfwTerminate();
+		assert(false && "GLAD was unable to load OpenGL.");
 	}
+
+	GLUtils::checkForOpenGLError(__FILE__, __LINE__);
+	GLUtils::dumpGLInfo();
 }
 
 #pragma endregion
@@ -74,7 +69,6 @@ void GameManager::InitializeGLEW()
 void GameManager::ErrorCallback(int error, const char* description)
 {
 	fputs(description, stderr);
-	_fgetchar();
 }
 
 void GameManager::KeyboardCallback(GLFWwindow* window, int key, int scancode, int action, int mods)

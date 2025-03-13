@@ -18,7 +18,7 @@ private:
 
 	void InitializeGLFW();
 	void InitializeCallbacks();
-	void InitializeGLEW();
+	void InitializeGLAD();
 
 	static void ErrorCallback(int error, const char* description);
 	static void KeyboardCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
