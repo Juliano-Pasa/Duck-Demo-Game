@@ -154,8 +154,8 @@ void PlayingState::InitializeTerrain()
 	int seed = rand() % 1000;
 
 	TerrainGenerator terrainGenerator = TerrainGenerator(mapSize, vector<double>{64, 128, 192, 128}, 1024, 0.2f, seed);
-	string heightMapPath = "..\\..\\resources\\heightMap.csv";
-	string normalMapPath = "..\\..\\resources\\normalMap.csv";
+	string heightMapPath = "../assets/heightMap.csv";
+	string normalMapPath = "../assets/normalMap.csv";
 
 	terrainGenerator.GenerateDiamondSquare();
 	terrainGenerator.GenerateNormalMap();
