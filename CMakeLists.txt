@@ -5,6 +5,11 @@ include_directories(include utils)
 add_executable(DuckGame 
     src/main.cpp
     src/glad.c
+
+    src/managers/GameManager.cpp
+
+    src/states/PlayingState.cpp
+
     utils/glslprogram.cpp
     utils/GLUtils.cpp
     )

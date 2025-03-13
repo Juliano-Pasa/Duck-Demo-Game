@@ -1,8 +1,7 @@
-#include "Game.hpp"
+#include "GamerManager.hpp"
 
-int main(int, char**)
+int main(void)
 {
-    monotile::Game game = monotile::Game();
-    game.Start();
-    return 0;
+	GameManager gameManager = GameManager();
+	gameManager.Launch();
 }
