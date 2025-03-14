@@ -85,6 +85,8 @@ void Camera::ReadKeyboardInputs()
 
 void Camera::ReadMouseInputs()
 {
+	// TODO: Fix big where currentAngles.y blows to infinity
+
 	dvec2 mouseCoords = inputManager->GetMouseCoords();
 
 	if (firstMouseMove)

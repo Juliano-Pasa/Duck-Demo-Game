@@ -1,8 +1,8 @@
 #include "managers/GameManager.hpp"
 #include "GLUtils.hpp"
 
-#define WINDOW_WIDTH 1920
-#define WINDOW_HEIGHT 1080
+#define WINDOW_WIDTH 800
+#define WINDOW_HEIGHT 800
 
 GameManager::GameManager()
 {
@@ -40,11 +40,11 @@ void GameManager::InitializeGLFW()
 		glfwTerminate();
 		assert(false && "Failed to create GLFW window.");
 	}
+	glfwMakeContextCurrent(window);
 }
 
 void GameManager::InitializeCallbacks()
 {
-	glfwMakeContextCurrent(window);
 	glfwSetKeyCallback(window, KeyboardCallback);
 	glfwSetErrorCallback(ErrorCallback);
 }

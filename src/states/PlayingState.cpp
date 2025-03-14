@@ -53,8 +53,6 @@ void PlayingState::OnStart()
 	wind = new Wind(camera->CameraPosition() + vec3(0, 100, 0), vec3(5));
 	entities.push_back(wind);
 	entities.back()->Initialize();
-	//terrain->AddChild(entities.back());
-
 	terrainV2->AddChild(entities.back());
 
 	InitializeBots(worldLight, terrainCenterPosition);
@@ -177,7 +175,7 @@ void PlayingState::InitializeInputManager(GLFWwindow* window)
 	vector<int> keys = { GLFW_KEY_W, GLFW_KEY_A, GLFW_KEY_S, GLFW_KEY_D, GLFW_KEY_LEFT_SHIFT, GLFW_KEY_LEFT_CONTROL, GLFW_KEY_ESCAPE };
 	inputManager = new InputManager(keys, true);
 	inputManager->SetupInputs(window);
-	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
 }
 
 Entity* PlayingState::InitializePlayer(InputManager* inputManager, Camera* camera, WorldLight* worldLight, vec3 position)
