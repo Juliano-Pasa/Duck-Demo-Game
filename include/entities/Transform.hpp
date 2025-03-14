@@ -6,10 +6,10 @@
 struct Transform
 {
 protected:
-	vec3 _position;
-	vec3 _scale;
-	vec3 _angles;
-	quat _rotation;
+	vec3 _position = vec3(0.0f);
+	vec3 _scale = vec3(1.0f);
+	vec3 _angles = vec3(0.0f);
+	quat _rotation = quat(vec3(0.0f));
 
 	mat4 _modelMatrix = mat4(1.0f);
 

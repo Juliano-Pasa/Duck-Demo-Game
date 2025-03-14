@@ -175,7 +175,7 @@ void PlayingState::InitializeInputManager(GLFWwindow* window)
 	vector<int> keys = { GLFW_KEY_W, GLFW_KEY_A, GLFW_KEY_S, GLFW_KEY_D, GLFW_KEY_LEFT_SHIFT, GLFW_KEY_LEFT_CONTROL, GLFW_KEY_ESCAPE };
 	inputManager = new InputManager(keys, true);
 	inputManager->SetupInputs(window);
-	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 }
 
 Entity* PlayingState::InitializePlayer(InputManager* inputManager, Camera* camera, WorldLight* worldLight, vec3 position)

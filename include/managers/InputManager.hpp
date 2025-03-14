@@ -25,7 +25,7 @@ private:
     void SetMouseCoords(double xCoord, double yCoord);
 
     map<int, bool> _keys;
-    dvec2 lastMouseCoords;
+    dvec2 lastMouseCoords = dvec2(0);
     bool _isEnabled;
 
 public:
