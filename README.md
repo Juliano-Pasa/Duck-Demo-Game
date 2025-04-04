@@ -1,4 +1,4 @@
-# Duck-Demo-Game
+# Duck Demo Game
 
 ![](assets/Readme/DuckFriendsInTheWind.gif)
 
